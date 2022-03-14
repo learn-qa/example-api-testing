@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'com.rocketscience.onlinecv'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'com.intuit.karate:karate-junit5:1.1.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sourceSets {
+    test {
+        resources {
+            srcDir file('src/test/java')
+            exclude '**/*.java'
+        }
+    }
+}

@@ -1,0 +1,9 @@
+/.gradle
+/.idea
+/build
+
+*.jar
+*.zip
+
+*.class
+*.log

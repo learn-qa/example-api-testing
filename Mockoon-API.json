@@ -1,0 +1,175 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "b0799ce6-a692-4141-821b-1a4f45c57b1b",
+                "lastMigration": 19,
+                "name": "Users",
+                "endpointPrefix": "api",
+                "latency": 0,
+                "port": 3000,
+                "hostname": "0.0.0.0",
+                "routes": [
+                    {
+                        "uuid": "1ef1119b-9379-42aa-917e-b352639348b9",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "users",
+                        "responses": [
+                            {
+                                "uuid": "ca858a6f-d98f-4e34-b1cc-387168404a42",
+                                "body": "{\n  \"data\": [\n    {{# repeat (queryParam 'total' '10') }}\n    {\n      \"firstName\": \"{{ faker 'name.firstName' }}\",\n      \"lastName\": \"{{ faker 'name.lastName' }}\",\n      \"address\": \"{{ faker 'address.streetAddress' }}, {{ faker 'address.city' }}, {{ faker 'address.country' }}, {{ faker 'address.countryCode' }}, {{ faker 'address.zipCode' }}\",\n      \"email\": \"{{ faker 'internet.email' }}\",\n      \"phone\": \"{{ faker 'phone.phoneNumber' }}\",\n      \"userId\": {{ faker 'random.number' min=10000 max=100000 }}\n    },\n    {{/ repeat }}\n    ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "13a11ea0-2345-4498-b98e-f8e099a87804",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "users/:userId",
+                        "responses": [
+                            {
+                                "uuid": "31718cc3-9ba0-4868-94db-f3f4d16a0fbb",
+                                "body": "{\n    \"firstName\": \"{{ faker 'name.firstName' }}\",\n    \"lastName\": \"{{ faker 'name.lastName' }}\",\n    \"address\": \"{{ faker 'address.streetAddress' }}, {{ faker 'address.city' }}, {{ faker 'address.country' }}, {{ faker 'address.countryCode' }}, {{ faker 'address.zipCode' }}\",\n    \"email\": \"{{ faker 'internet.email' }}\",\n    \"phone\": \"{{ faker 'phone.phoneNumber' }}\",\n    \"userId\": {{urlParam 'userId'}}\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "ebb91e17-260b-4485-b3f4-5679a01ae58c",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "users",
+                        "responses": [
+                            {
+                                "uuid": "9f0863d5-49a5-4aff-99a8-b4fede49b2c8",
+                                "body": "{\n  \"status\": \"success\",\n  \"userId\": {{ faker 'random.number' min=10000 max=100000 }}\n}",
+                                "latency": 0,
+                                "statusCode": 201,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "9279600e-33f9-494d-92b6-89bec89bfe4f",
+                        "documentation": "",
+                        "method": "put",
+                        "endpoint": "users/:userId",
+                        "responses": [
+                            {
+                                "uuid": "b111259c-b372-4ccd-a936-c16ecd19c95c",
+                                "body": "{\n  \"status\": \"success\"\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "4b21658e-57f2-4b33-bc91-933fdfebbb7d",
+                        "documentation": "",
+                        "method": "delete",
+                        "endpoint": "users/:userId",
+                        "responses": [
+                            {
+                                "uuid": "366bb6dd-4097-40cf-982e-9d15c96fb206",
+                                "body": "{\n  \"status\": \"success\"\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "proxyRemovePrefix": false,
+                "tlsOptions": {
+                    "enabled": false,
+                    "type": "CERT",
+                    "pfxPath": "",
+                    "certPath": "",
+                    "keyPath": "",
+                    "caPath": "",
+                    "passphrase": ""
+                },
+                "cors": true,
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "proxyReqHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ],
+                "proxyResHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ]
+            }
+        }
+    ]
+}
